@@ -1,5 +1,4 @@
 name: telegram notify
-
 on: push
 jobs:
   printJob:    

@@ -9,5 +9,5 @@ jobs:
       env:
         telegram_to: ${{ secrets.TELEGRAM_TO }}
         telegram_token: ${{ secrets.TELEGRAM_TOKEN }}
-        event: ${{ toJson(github.event)}}
-        ref_name: ${{ github.ref_name }}
+        event: ${{ toJson(github)}}
+ 

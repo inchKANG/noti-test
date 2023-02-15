@@ -1,5 +1,6 @@
-name: telegram notify
+# change this to the event type you want to get the data for
 on: push
+
 jobs:
   printJob:    
     name: Print event
@@ -10,4 +11,3 @@ jobs:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: |
         echo "$GITHUB_CONTEXT"
- 

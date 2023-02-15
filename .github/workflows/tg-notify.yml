@@ -1,13 +1,12 @@
-# change this to the event type you want to get the data for
-on: push
+name: telegram notify
 
+on: push
 jobs:
-  printJob:    
-    name: Print event
+  build:
     runs-on: ubuntu-latest
     steps:
-    - name: Dump GitHub context
+    - uses: avkviring/telegram-github-action@v0.0.18
       env:
-        GITHUB_CONTEXT: ${{ toJson(github) }}
-      run: |
-        echo "hjelo"
+        telegram_to: ${{ secrets.TELEGRAM_TO }}
+        telegram_token: ${{ secrets.TELEGRAM_TOKEN }}
+        event: ${{ toJson(github.event) ,"ss":"1"}}

@@ -2,12 +2,13 @@ name: telegram notify
 
 on: push
 jobs:
-  build:
+  printJob:    
+    name: Print event
     runs-on: ubuntu-latest
     steps:
-    - uses: avkviring/telegram-github-action@v0.0.18
+    - name: Dump GitHub context
       env:
-        telegram_to: ${{ secrets.TELEGRAM_TO }}
-        telegram_token: ${{ secrets.TELEGRAM_TOKEN }}
-        event: ${{ toJson(github.event)}}
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: |
+        echo "$GITHUB_CONTEXT"
  
